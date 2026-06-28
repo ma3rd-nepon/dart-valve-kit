@@ -1,4 +1,5 @@
-export 'src/vdf/vdf.dart';
+export 'src/vdf/vdf_parser.dart';
+
 export 'src/vtf/vtf_parser.dart';
 export 'src/vtf/vtf_header.dart';
 export 'src/vtf/vtf_image.dart';

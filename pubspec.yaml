@@ -1,15 +1,14 @@
 name: dart_valve_kit
-description: A sample command-line application.
+description: Valve kit is a package for Valve formats (VDF, VTF, etc.) made on Dart.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/ma3rd-nepon/dart-valve-kit
 
 environment:
   sdk: ^3.12.2
 
-# Add regular dependencies here.
 dependencies:
   path: ^1.9.0
-  image: any
+  image: ^4.9.1
 
 dev_dependencies:
   lints: ^6.0.0

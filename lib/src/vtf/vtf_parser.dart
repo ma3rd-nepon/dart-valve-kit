@@ -8,7 +8,7 @@ import 'package:image/image.dart' as img;
 typedef ImageEncoder = Uint8List Function(img.Image image);
 
 class VTFFile {
-  static const String VTF_HEADER = "VTF";
+  static const String vtfHeader = "VTF";
 
   late VTFHeader header;
   late List<VTFResource> resources;
@@ -32,9 +32,9 @@ class VTFFile {
     final reader = ByteDataReader(bytes);
 
     final headerStr = reader.readString(4);
-    if (headerStr != VTF_HEADER) {
+    if (headerStr != vtfHeader) {
       throw Exception(
-        'Invalid VTF header. Expected "$VTF_HEADER", got "$headerStr"',
+        'Invalid VTF header. Expected "$vtfHeader", got "$headerStr"',
       );
     }
 
@@ -282,30 +282,30 @@ class VTFResource {
 }
 
 enum VTFResourceType {
-  LowResImage,
-  Image,
-  Sheet,
-  CRC,
-  TextureLodSettings,
-  TextureSettingsEx,
-  KeyValueData;
+  lowResImage,
+  image,
+  sheet,
+  crc,
+  textureLodSettings,
+  textureSettingsEx,
+  keyValueData;
 
   static VTFResourceType fromValue(int value) {
     switch (value) {
       case 0x01:
-        return VTFResourceType.LowResImage;
+        return VTFResourceType.lowResImage;
       case 0x30:
-        return VTFResourceType.Image;
+        return VTFResourceType.image;
       case 0x10:
-        return VTFResourceType.Sheet;
+        return VTFResourceType.sheet;
       case 0x02:
-        return VTFResourceType.CRC;
+        return VTFResourceType.crc;
       case 0x31:
-        return VTFResourceType.TextureLodSettings;
+        return VTFResourceType.textureLodSettings;
       case 0x32:
-        return VTFResourceType.TextureSettingsEx;
+        return VTFResourceType.textureSettingsEx;
       case 0x03:
-        return VTFResourceType.KeyValueData;
+        return VTFResourceType.keyValueData;
       default:
         throw Exception('Unknown resource type: $value');
     }
